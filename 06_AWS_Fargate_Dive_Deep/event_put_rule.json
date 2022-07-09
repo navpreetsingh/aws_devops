@@ -1,0 +1,5 @@
+{
+  "Name": "CodeCommitRulePictshare",
+  "EventPatter": "{\"source\": [ \"aws.codecommit\" ], \"detail-type\": [\"CodeCommit Repository State Change\"]}",
+  "State": "ENABLED"
+}

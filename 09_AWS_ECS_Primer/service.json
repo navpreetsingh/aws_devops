@@ -1,0 +1,22 @@
+{
+  "cluster": "ecs-demo",
+  "serviceName": "my-service",
+  "taskDefinition": "my-app",
+  "desiredCount": 10,
+  "placementConstraints": [
+    {
+      "type": "memberOf",
+      "expression": "attribute:ecs.instance-type matches t2.*"
+    }
+  ],
+  "placementStrategy": [
+    {
+      "type": "spread",
+      "field": "attribute:ecs.availability-zone"
+    },
+    {
+      "type": "binpack",
+      "field": "MEMORY"
+    }
+  ]
+}

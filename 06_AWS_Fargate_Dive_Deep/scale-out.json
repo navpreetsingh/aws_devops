@@ -1,0 +1,16 @@
+{
+  "PolicyName": "pictshare-app-cpu-gt-50",
+  "ServiceNamespace": "ecs",
+  "ResourceId": "service/pictshare/pictshare",
+  "ScalableDimension": "ecs:service:DesiredCount",
+  "PolicyType": "TargeTrackingScaling",
+  "TargetTrackingScalingPolicyConfiguration": {
+    "TargetValue": 50,
+    "PredefinedMetricSpecification": {
+      "PredefinedMetricType": "ECSServiceAverageCPUUtilization"
+    },
+    "ScaleOutCooldown": 5,
+    "ScaleInCooldown": 5,
+    "DisableScaleIn": false
+  }
+}

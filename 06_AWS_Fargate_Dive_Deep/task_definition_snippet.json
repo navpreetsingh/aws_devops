@@ -1,0 +1,35 @@
+{
+  "family": "my-application",
+  "cpu": "1 vCpu",
+  "memory": "2 gb",
+  "networkMode": "awsvpc", // Enables ENI creation and attachment to task
+  "containerDefinitions": [
+    {
+      "name": "my-application-frontend",
+      "image": "xxx.dfr.ecr.ap-northeast-1.amazonaws.com/fe",
+      "cpu": 256,
+      "memoryReservation": 512,
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "my-application",
+          "awslogs-region": "ap-northeast-1",
+          "awslogs-stream-prefix": "my-application/frontend"
+        }
+      }
+    },
+    {
+      "name": "my-application-api",
+      "image": "xxx.dfr.ecr.ap-northeast-1.amazonaws.com/api",
+      "cpu": 768,
+      "memoryReservation": 512,
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "my-application",
+          "awslogs-region": "ap-northeast-1",
+          "awslogs-stream-prefix": "my-application/api"
+        }
+    }
+  ]
+}
